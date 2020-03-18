@@ -1,5 +1,5 @@
 import React from 'react'
-import { TracksContainer } from '../../tracks/components/TracksContainer'
+import { TracksContainer } from '../../track/components/TracksContainer'
 
 export const HomePage = () => {
     return (

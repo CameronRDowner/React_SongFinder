@@ -1,9 +1,10 @@
 import React from 'react'
+import { TracksContainer } from '../../tracks/components/TracksContainer'
 
 export const HomePage = () => {
     return (
         <div>
-            <h1>homepage</h1>
+            <TracksContainer/>
         </div>
     )
 }

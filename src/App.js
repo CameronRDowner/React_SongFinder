@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.scss';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {NavBar} from './components/NavBar.js';
-import {HomePage} from './pages/HomePage.js';
+import {NavBar} from './modules/main/components/NavBar.js';
+import {HomePage} from './modules/main/pages/HomePage.js';
+import {Provider} from './context.js';
 
 function App() {
   return (
+    <Provider>
     <Router>
     <React.Fragment>
       <NavBar/>
@@ -16,6 +18,7 @@ function App() {
       </div>
     </React.Fragment>
     </Router>
+    </Provider>
   );
 }
 

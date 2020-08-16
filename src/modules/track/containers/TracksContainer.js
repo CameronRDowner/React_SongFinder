@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import {Consumer} from '../../../context';
-import {TracksSkeletonScreen} from './TracksSkeletonScreen.js';
-import {Track} from './Track.js';
+import {TracksSkeletonScreen} from '../components/TracksSkeletonScreen.js';
+import {Track} from '../components/Track.js';
 
-const tracksContainerStyles = {
-    display : 'flex',
-    flexDirection : 'row',
-    flexWrap : 'wrap'
-}
-
-export class TracksContainer extends Component {
-    render() {
-        return (
-            <Consumer>
+export const TracksContainer = () => {
+    return (
+        <Consumer>
                 {value => {
                  const {track_list} = value;
 
@@ -21,7 +14,7 @@ export class TracksContainer extends Component {
                  }
                  else{
                     return (
-                    <div id="tracks-container" style={tracksContainerStyles}>
+                    <div id="tracks-container" className="flex-container-row-start">
                         {track_list.map(item => (
                             <Track key={item.track.track_id} track={item.track} />
                         ))}
@@ -29,7 +22,7 @@ export class TracksContainer extends Component {
                     )
                  }
                 }}
-            </Consumer>
-        )
-    }
+        </Consumer>
+    )
 }
+

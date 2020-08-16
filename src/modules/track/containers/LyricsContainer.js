@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
-export const Lyrics = () => {
+export const LyricsContainer = () => {
     const [track, setTrack] = useState({});
     const [lyrics, setLyrics] = useState({});
     useEffect(() => {

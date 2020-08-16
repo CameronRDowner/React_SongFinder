@@ -6,7 +6,7 @@ import {Provider} from './context.js';
 import {LyricsContainer} from './modules/track/containers/LyricsContainer';
 import { TracksContainer } from './modules/track/containers/TracksContainer';
 
-function App() {
+export const App = () => {
   return (
     <Provider>
     <Router>
@@ -21,7 +21,6 @@ function App() {
     </React.Fragment>
     </Router>
     </Provider>
-  );
+  )
 }
 
-export default App;

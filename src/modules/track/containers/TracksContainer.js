@@ -5,6 +5,7 @@ import {Track} from '../components/Track.js';
 
 export const TracksContainer = () => {
     return (
+        <main>
         <Consumer>
                 {value => {
                  const {track_list} = value;
@@ -23,6 +24,7 @@ export const TracksContainer = () => {
                  }
                 }}
         </Consumer>
+        </main>
     )
 }
 

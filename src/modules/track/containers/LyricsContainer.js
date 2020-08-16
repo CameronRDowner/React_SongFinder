@@ -7,8 +7,8 @@ export const LyricsContainer = () => {
         
     }, [])
     return (
-        <div>
+        <main>
             <h1>Lyrics</h1>
-        </div>
+        </main>
     )
 }

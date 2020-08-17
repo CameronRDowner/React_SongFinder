@@ -4,6 +4,7 @@ import axios from 'axios';
 import { LyricsSkeletonScreen } from '../components/LyricsSkeletonScreen';
 import { Lyrics } from '../components/Lyrics';
 import { Track } from '../components/Track';
+import { Search } from '../components/Search';
 
 export const LyricsContainer = (properties) => {
     const [track, setTrack] = useState({});
@@ -31,6 +32,7 @@ export const LyricsContainer = (properties) => {
     }, [])
     return ( 
         <main>
+        <Search/>
         {
         (Object.keys(track).length === 0 || Object.keys(lyrics).length === 0)?
         <LyricsSkeletonScreen/>:

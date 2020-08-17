@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Context = React.createContext();
-
+export const Consumer = Context.Consumer;
 export class Provider extends Component {
     state = {
-        track_list: [],
-        heading: 'Top Tracks'
+        topTrackList: []
+    }
+    baseUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1"
+    apiKey = `&apikey=${process.env.REACT_APP_MM_KEY}`
+    getTopTrackList = () =>{
+        return axios.get(`${this.baseUrl}/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1${this.apiKey}`)
     }
     componentDidMount(){
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=${process.env.REACT_APP_MM_KEY}`)
-            .then(result => {
-                console.log(result);
-                this.setState({track_list: result.data.message.body.track_list});        
-            })
-            .catch(error => console.log(error));
+        this.getTopTrackList().then((result)=>{
+            this.setState({topTrackList: result.data.message.body.track_list})
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
     }
     render() {
         return (
@@ -24,4 +28,3 @@ export class Provider extends Component {
         )
     }
 }
-export const Consumer = Context.Consumer;

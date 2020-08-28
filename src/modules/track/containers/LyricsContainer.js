@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import {Consumer} from '../../../context';
 import axios from 'axios';
 import { LyricsSkeletonScreen } from '../components/LyricsSkeletonScreen';
 import { Lyrics } from '../components/Lyrics';

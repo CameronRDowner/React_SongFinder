@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import {Consumer} from '../../../context';
 import {TracksSkeletonScreen} from '../components/TracksSkeletonScreen.js';
 import {Track} from '../components/Track.js';
@@ -8,12 +8,13 @@ import {Context} from '../../../context';
 
 export const TracksContainer = () => {
     const baseUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?";
-    const pageConfigURL = "&page_size=10$page=1&s_track_rating=desc"
+    const pageConfigURL = "&page_size=10&page=1&s_track_rating=desc";
     const apiKeyUrl = `&apikey=${process.env.REACT_APP_MM_KEY}`;
     const {dispatch} = useContext(Context)
     const handleSearchByTrackName = (_trackName) => {
         getTrackByName(_trackName)
         .then(result=>{
+            console.log(result.data)
             setTrackList(result.data.message.body.track_list);
         })
         .catch(_error=>{
@@ -21,8 +22,7 @@ export const TracksContainer = () => {
         })
     }
     const handleSearchByTrackLyrics = (_trackLyrics) => {
-        getTrackByLyrics(_trackLyrics)
-        .then(result=>{
+        getTrackByLyrics(_trackLyrics).then(result=>{
             setTrackList(result.data.message.body.track_list)
         })
         .catch(_error=>{
@@ -30,6 +30,7 @@ export const TracksContainer = () => {
         })
     }
     const getTrackByName = (trackName) =>{
+        console.log(`${baseUrl}q_track=${trackName}${pageConfigURL}${apiKeyUrl}`)
         return axios.get(`${baseUrl}q_track=${trackName}${pageConfigURL}${apiKeyUrl}`)
     }
     const getTrackByLyrics = (trackLyrics) =>{

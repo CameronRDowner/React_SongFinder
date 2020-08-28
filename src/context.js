@@ -1,7 +1,7 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component} from 'react';
 import axios from 'axios';
 
-const Context = React.createContext();
+export const Context = React.createContext();
 
 const reducer = (state, action)=>{
     switch(action.type){
@@ -27,9 +27,10 @@ export class Provider extends Component {
         tracksHeading:"Top 10 Tracks",
         dispatch: action => this.setState(state=>reducer(state, action))
     }
-    baseUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1"
+    baseUrl = "https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1"
     apiKey = `&apikey=${process.env.REACT_APP_MM_KEY}`
     getTopTrackList = () =>{
+        console.log(`${this.baseUrl}/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1${this.apiKey}`)
         return axios.get(`${this.baseUrl}/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1${this.apiKey}`)
     }
     componentDidMount(){

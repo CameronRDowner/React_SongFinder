@@ -2,10 +2,30 @@ import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Context = React.createContext();
+
+const reducer = (state, action)=>{
+    switch(action.type){
+        case 'SET_TRACK_LIST':{
+            return {
+                ...state,
+                trackList: action.payload
+            }
+        }
+        case 'SET_TRACKS_HEADING':{
+            return {
+                ...state,
+                tracksHeading: action.payload
+            }
+        }
+    }
+}
+
 export const Consumer = Context.Consumer;
 export class Provider extends Component {
     state = {
-        topTrackList: []
+        trackList: [],
+        tracksHeading:"Top 10 Tracks",
+        dispatch: action => this.setState(state=>reducer(state, action))
     }
     baseUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1"
     apiKey = `&apikey=${process.env.REACT_APP_MM_KEY}`
@@ -14,7 +34,7 @@ export class Provider extends Component {
     }
     componentDidMount(){
         this.getTopTrackList().then((result)=>{
-            this.setState({topTrackList: result.data.message.body.track_list})
+            this.setState({trackList: result.data.message.body.track_list})
         })
         .catch((error)=>{
             console.log(error);

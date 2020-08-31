@@ -42,19 +42,31 @@ export const TracksContainer = () => {
             payload: _trackList
         });
     }
+    const setTracksHeading = (_tracksHeading) => {
+        dispatch({
+            type: 'SET_TRACKS_HEADING',
+            payload: _tracksHeading
+        })
+    }
     return (
         <main>
             <Search SearchByTrackLyrics={handleSearchByTrackLyrics} SearchByTrackName={handleSearchByTrackName}/>
         <Consumer>
                 {value => {
-                 const {trackList} = value;
-
+                 const {trackList, tracksHeading} = value;
+                    
                  if(trackList === undefined || trackList === 0){
-                    return <TracksSkeletonScreen/>;
+                    return (
+                    <div>
+                    <h3>{tracksHeading}</h3>
+                    <TracksSkeletonScreen/>
+                    </div>
+                    );
                  }
                  else{
                     return (
                     <div id="tracks-container" className="flex-container-row-start">
+                        <h3>{tracksHeading}</h3>
                         {trackList.map(item => (
                             <Track key={item.track.track_id} track={item.track} />
                         ))}

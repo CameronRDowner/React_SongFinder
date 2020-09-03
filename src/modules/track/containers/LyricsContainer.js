@@ -3,7 +3,7 @@ import axios from 'axios';
 import { LyricsSkeletonScreen } from '../components/LyricsSkeletonScreen';
 import { Lyrics } from '../components/Lyrics';
 import { Track } from '../components/Track';
-import { Search } from '../components/Search';
+import { Search } from '../components/Search/Search';
 
 export const LyricsContainer = (properties) => {
     const [track, setTrack] = useState({});

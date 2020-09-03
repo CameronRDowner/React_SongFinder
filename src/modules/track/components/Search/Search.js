@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Consumer } from '../../../context';
+import { Consumer } from '../../../../context';
 
 export const Search = (properties) => {
     const [trackSearchTerm, setTrackSearchTerm] = useState('');

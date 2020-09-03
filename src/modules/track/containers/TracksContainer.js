@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import {Consumer} from '../../../context';
 import {TracksSkeletonScreen} from '../components/TracksSkeletonScreen.js';
 import {Track} from '../components/Track.js';
-import {Search} from '../components/Search';
+import {Search} from '../components/Search/Search';
 import axios from 'axios';
 import {Context} from '../../../context';
 

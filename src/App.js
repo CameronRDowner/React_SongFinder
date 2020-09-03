@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {NavBar} from './modules/main/components/NavBar.js';
+import {NavBar} from './modules/main/components/NavBar/NavBar.js';
 import {Provider} from './context.js';
 import {LyricsContainer} from './modules/track/containers/LyricsContainer';
 import { TracksContainer } from './modules/track/containers/TracksContainer';

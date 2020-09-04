@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './styles.module.scss'
+import styles from './NavBar.module.scss'
 export const NavBar = () => {
     return (
         <nav className="flex-container-row-start">

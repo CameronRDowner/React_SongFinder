@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Consumer } from '../../../../context';
+import { Textbox } from '../../../shared/components/Textbox/Textbox';
 
 export const Search = (properties) => {
     const [trackSearchTerm, setTrackSearchTerm] = useState('');
@@ -20,7 +21,7 @@ export const Search = (properties) => {
                 <div>
                     <h2>Search for a song</h2>
                 <form onSubmit={handleSearchButtonClick}>
-                    <input type="text" placeholder="Track Name" name="trackSearch" value={trackSearchTerm} onChange={event => setTrackSearchTerm(event.target.value)}></input>
+                    <Textbox name={trackSearchTerm} placeholder={`Song ${searchBy}...`} value={trackSearchTerm} handleChange={setTrackSearchTerm}/>
                     <select value={searchBy} onChange={event => setSearchBy(event.target.value)}>
                         <option value={'name'}>Name</option>
                         <option value={'lyrics'}>Lyrics</option>

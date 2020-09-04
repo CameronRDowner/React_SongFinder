@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import './sass/colors';
 body{
-    background-color: #141419;
+    background-color: $black;
     font-family: 'Roboto', sans-serif;
 }
 .flex-container-row-start{

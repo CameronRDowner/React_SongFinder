@@ -1,0 +1,14 @@
+@import '../../../.././sass/colors';
+.wrapper{
+
+}
+.button{
+border: solid 1px $dark-white;
+cursor: pointer;
+}
+.button--toggled{
+background-color: $dark-white;
+}
+.button--untoggled{
+background-color: none;
+}

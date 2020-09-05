@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Consumer } from '../../../../context';
 import { Textbox } from '../../../shared/components/Textbox/Textbox';
+import { RadioCluster } from '../../../shared/components/RadioCluster/RadioCluster';
+import { IconButton } from '../../../shared/components/IconButton/IconButton';
 
 export const Search = (properties) => {
     const [trackSearchTerm, setTrackSearchTerm] = useState('');
@@ -22,11 +24,8 @@ export const Search = (properties) => {
                     <h2>Search for a song</h2>
                 <form onSubmit={handleSearchButtonClick}>
                     <Textbox name={trackSearchTerm} placeholder={`Song ${searchBy}...`} value={trackSearchTerm} handleChange={setTrackSearchTerm}/>
-                    <select value={searchBy} onChange={event => setSearchBy(event.target.value)}>
-                        <option value={'name'}>Name</option>
-                        <option value={'lyrics'}>Lyrics</option>
-                    </select>
-                    <button type="submit" name="searchSubmit">Search</button>
+                    <IconButton iconClasses="fas fa-search" submit="submit"/>
+                    <RadioCluster handleButtonClick={setSearchBy} buttonList={['name', 'lyrics']}/>
                 </form>
                 </div>
                 )

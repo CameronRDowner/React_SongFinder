@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { LyricsSkeletonScreen } from '../components/LyricsSkeletonScreen';
 import { Lyrics } from '../components/Lyrics';
-import { Track } from '../components/Track';
+import { Track } from '../components/Track/Track';
 import { Search } from '../components/Search/Search';
 
 export const LyricsContainer = (properties) => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import {Consumer} from '../../../../context';
 import {TracksSkeletonScreen} from '../../components/TracksSkeletonScreen.js';
-import {Track} from '../../components/Track.js';
+import {Track} from '../../components/Track/Track.js';
 import {Search} from '../../components/Search/Search';
 import axios from 'axios';
 import {Context} from '../../../../context';
@@ -68,7 +68,7 @@ export const TracksContainer = () => {
                     return (
                     <>
                     <h3 className={styles['tracks-heading']}>{tracksHeading}</h3>
-                    <div id="tracks-container" className="flex-container-row-start">
+                    <div id="tracks-container" className={styles['tracks-container']}>
                         {trackList.map(item => (
                             <Track key={item.track.track_id} track={item.track} />
                         ))}

@@ -21,8 +21,8 @@ export const TracksContainer = () => {
             console.log(_error);
         })
     }
-    const handleSearchByTrackLyrics = (_trackLyrics) => {
-        getTrackByLyrics(_trackLyrics).then(result=>{
+    const handleSearchByTrackLyric = (_trackLyrics) => {
+        getTrackByLyric(_trackLyrics).then(result=>{
             setTrackList(result.data.message.body.track_list)
         })
         .catch(_error=>{
@@ -33,7 +33,7 @@ export const TracksContainer = () => {
         console.log(`${baseUrl}q_track=${trackName}${pageConfigURL}${apiKeyUrl}`)
         return axios.get(`${baseUrl}q_track=${trackName}${pageConfigURL}${apiKeyUrl}`)
     }
-    const getTrackByLyrics = (trackLyrics) =>{
+    const getTrackByLyric = (trackLyrics) =>{
         return axios.get(`${baseUrl}q_lyrics=${trackLyrics}${pageConfigURL}${apiKeyUrl}`)
     }
     const setTrackList = (_trackList) =>{
@@ -50,7 +50,7 @@ export const TracksContainer = () => {
     }
     return (
         <main>
-            <Search SearchByTrackLyrics={handleSearchByTrackLyrics} SearchByTrackName={handleSearchByTrackName}/>
+            <Search SearchByTrackLyrics={handleSearchByTrackLyric} SearchByTrackName={handleSearchByTrackName}/>
         <Consumer>
                 {value => {
                  const {trackList, tracksHeading} = value;

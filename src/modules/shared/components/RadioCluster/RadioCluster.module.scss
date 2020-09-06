@@ -2,16 +2,18 @@
 .button{
 border: solid 2px $dark-white;
 cursor: pointer;
-height: 2.3rem;
-padding: 0.5em;
-box-sizing: border-box;
-font-size: 1.1rem;
-margin: 0 0.2em;
+padding: 0.4em;
+font-size: 1rem;
+margin: 0.4em 0.2em 0 0.2em;
+display: inline-block;
+&:focus{
+    outline: none;
+}
 }
 .button--toggled{
 background-color: $dark-white;
 }
 .button--untoggled{
-background-color: none;
 color: $dark-white;
+background: none;
 }

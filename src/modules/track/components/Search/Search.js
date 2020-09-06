@@ -6,14 +6,14 @@ import { IconButton } from '../../../shared/components/IconButton/IconButton';
 import styles from './Search.module.scss';
 export const Search = (properties) => {
     const [trackSearchTerm, setTrackSearchTerm] = useState('');
-    const [searchBy, setSearchBy] = useState('name');
+    const [searchBy, setSearchBy] = useState('Name');
     const handleSearchButtonClick = (event) => {
         event.preventDefault();
-        if(searchBy === "name"){
+        if(searchBy === "Name"){
             properties.SearchByTrackName(trackSearchTerm)
         }
         else{
-            properties.SearchByTrackLyrics(trackSearchTerm)
+            properties.SearchByTrackLyric(trackSearchTerm)
         }
     }
     return (
@@ -25,7 +25,10 @@ export const Search = (properties) => {
                         <Textbox name={trackSearchTerm} placeholder={`Song ${searchBy}...`} value={trackSearchTerm} handleChange={setTrackSearchTerm}/>
                         <IconButton iconClasses="fas fa-search" submit="submit"/>
                     </div>
-                    <RadioCluster handleButtonClick={setSearchBy} buttonList={['name', 'lyrics']}/>
+                    <div className="flex-container-row-center">
+                        <span className={styles['radio-label']}>Search by: </span>
+                        <RadioCluster handleButtonClick={setSearchBy} buttonList={['Name', 'Lyric']}/>
+                    </div>
                 </form>
                 )
             }}

@@ -2,11 +2,16 @@
 .main-wrapper{
     max-width: 37rem;
     background-color: $dark-gray;
-    margin: 0 0.5em 0 0.5em;
+    margin: 0 auto;
     padding: 0.5em;
     overflow: none;
 }
 .controls-wrapper{
     display: flex;
     gap: 0.5em;
+}
+.radio-label{
+    color: $light-gray;
+    font-size: 1.1rem;
+    margin-right: 0.5em;
 }

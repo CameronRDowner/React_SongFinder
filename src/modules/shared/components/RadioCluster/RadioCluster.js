@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styles from './RadioCluster.module.scss'
 export const RadioCluster = (properties) => {
-    const [toggledButton, setToggledButton] = useState('name');
+    const [toggledButton, setToggledButton] = useState('Name');
     useEffect(() => {
       emitButtonClick(toggledButton)  
     }, [toggledButton])
@@ -12,7 +12,12 @@ export const RadioCluster = (properties) => {
     return (
         <div className="flex-container-row-center">
             {properties.buttonList.map(buttonName => (
-                            <a onClick={()=>setToggledButton(buttonName)}><span className={`${(toggledButton === buttonName ? styles['button--toggled']: styles['button--untoggled'])} ${styles.button}`}>{buttonName}</span></a>
+                            <button 
+                            onClick={()=>setToggledButton(buttonName)} 
+                            className={`${(toggledButton === buttonName ? styles['button--toggled']: styles['button--untoggled'])} ${styles.button}`}
+                            >
+                            {buttonName}
+                            </button>
                         ))}
         </div>
     )

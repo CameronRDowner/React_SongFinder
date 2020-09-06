@@ -10,7 +10,7 @@ export const RadioCluster = (properties) => {
     }
     
     return (
-        <div className="flex-container-row-start">
+        <div className="flex-container-row-center">
             {properties.buttonList.map(buttonName => (
                             <a onClick={()=>setToggledButton(buttonName)}><span className={`${(toggledButton === buttonName ? styles['button--toggled']: styles['button--untoggled'])} ${styles.button}`}>{buttonName}</span></a>
                         ))}

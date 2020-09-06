@@ -3,7 +3,7 @@ import { Consumer } from '../../../../context';
 import { Textbox } from '../../../shared/components/Textbox/Textbox';
 import { RadioCluster } from '../../../shared/components/RadioCluster/RadioCluster';
 import { IconButton } from '../../../shared/components/IconButton/IconButton';
-
+import styles from './Search.module.scss';
 export const Search = (properties) => {
     const [trackSearchTerm, setTrackSearchTerm] = useState('');
     const [searchBy, setSearchBy] = useState('name');
@@ -20,14 +20,11 @@ export const Search = (properties) => {
         <Consumer>
             {value=>{ 
                 return(
-                <div>
-                    <h2>Search for a song</h2>
-                <form onSubmit={handleSearchButtonClick}>
+                <form class={styles.wrapper} onSubmit={handleSearchButtonClick}>
                     <Textbox name={trackSearchTerm} placeholder={`Song ${searchBy}...`} value={trackSearchTerm} handleChange={setTrackSearchTerm}/>
                     <IconButton iconClasses="fas fa-search" submit="submit"/>
                     <RadioCluster handleButtonClick={setSearchBy} buttonList={['name', 'lyrics']}/>
                 </form>
-                </div>
                 )
             }}
         </Consumer>

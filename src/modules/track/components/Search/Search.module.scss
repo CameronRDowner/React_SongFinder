@@ -1,6 +1,12 @@
 @import '../../../../sass/colors';
-.wrapper{
+.main-wrapper{
     max-width: 37rem;
     background-color: $dark-gray;
     margin: 0 0.5em 0 0.5em;
+    padding: 0.5em;
+    overflow: none;
+}
+.controls-wrapper{
+    display: flex;
+    gap: 0.5em;
 }

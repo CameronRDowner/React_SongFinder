@@ -20,9 +20,11 @@ export const Search = (properties) => {
         <Consumer>
             {value=>{ 
                 return(
-                <form class={styles.wrapper} onSubmit={handleSearchButtonClick}>
-                    <Textbox name={trackSearchTerm} placeholder={`Song ${searchBy}...`} value={trackSearchTerm} handleChange={setTrackSearchTerm}/>
-                    <IconButton iconClasses="fas fa-search" submit="submit"/>
+                <form class={styles['main-wrapper']} onSubmit={handleSearchButtonClick}>
+                    <div className={styles['controls-wrapper']}>
+                        <Textbox name={trackSearchTerm} placeholder={`Song ${searchBy}...`} value={trackSearchTerm} handleChange={setTrackSearchTerm}/>
+                        <IconButton iconClasses="fas fa-search" submit="submit"/>
+                    </div>
                     <RadioCluster handleButtonClick={setSearchBy} buttonList={['name', 'lyrics']}/>
                 </form>
                 )

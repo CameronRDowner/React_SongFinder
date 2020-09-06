@@ -1,3 +1,18 @@
+@import '../../../../sass/colors';
 .textbox{
-    height: 2em;
+    height: 2.75rem;
+    font-size: 1.5rem;
+    padding: 0 0.75em;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: $medium-gray;
+    border: none;
+    color: $dark-white;
+    &::placeholder{
+        color: $light-gray;
+    }
+    &:focus{
+        outline: none;
+        box-shadow: inset 0px 0px 8px $blue;
+    }
 }

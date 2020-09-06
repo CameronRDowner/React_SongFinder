@@ -20,7 +20,7 @@ export const Search = (properties) => {
         <Consumer>
             {value=>{ 
                 return(
-                <form class={styles['main-wrapper']} onSubmit={handleSearchButtonClick}>
+                <form className={styles['main-wrapper']} onSubmit={handleSearchButtonClick}>
                     <div className={styles['controls-wrapper']}>
                         <Textbox name={trackSearchTerm} placeholder={`Song ${searchBy}...`} value={trackSearchTerm} handleChange={setTrackSearchTerm}/>
                         <IconButton iconClasses="fas fa-search" submit="submit"/>

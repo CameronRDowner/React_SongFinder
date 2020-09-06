@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import {Consumer} from '../../../context';
-import {TracksSkeletonScreen} from '../components/TracksSkeletonScreen.js';
-import {Track} from '../components/Track.js';
-import {Search} from '../components/Search/Search';
+import {Consumer} from '../../../../context';
+import {TracksSkeletonScreen} from '../../components/TracksSkeletonScreen.js';
+import {Track} from '../../components/Track.js';
+import {Search} from '../../components/Search/Search';
 import axios from 'axios';
-import {Context} from '../../../context';
+import {Context} from '../../../../context';
+import styles from './TracksContainer.module.scss';
 
 export const TracksContainer = () => {
     const baseUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?";
@@ -50,27 +51,29 @@ export const TracksContainer = () => {
     }
     return (
         <main>
-            <Search SearchByTrackLyrics={handleSearchByTrackLyric} SearchByTrackName={handleSearchByTrackName}/>
+            <Search SearchByTrackLyric={handleSearchByTrackLyric} SearchByTrackName={handleSearchByTrackName}/>
         <Consumer>
                 {value => {
                  const {trackList, tracksHeading} = value;
                     
                  if(trackList === undefined || trackList === 0){
                     return (
-                    <div>
-                    <h3>{tracksHeading}</h3>
+                    <>
+                    <h2 className={styles['tracks-heading']}>{tracksHeading}</h2>
                     <TracksSkeletonScreen/>
-                    </div>
+                    </>
                     );
                  }
                  else{
                     return (
+                    <>
+                    <h3 className={styles['tracks-heading']}>{tracksHeading}</h3>
                     <div id="tracks-container" className="flex-container-row-start">
-                        <h3>{tracksHeading}</h3>
                         {trackList.map(item => (
                             <Track key={item.track.track_id} track={item.track} />
                         ))}
                     </div>
+                    </>
                     )
                  }
                 }}

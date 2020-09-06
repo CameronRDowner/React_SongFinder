@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {NavBar} from './modules/main/components/NavBar/NavBar.js';
 import {Provider} from './context.js';
 import {LyricsContainer} from './modules/track/containers/LyricsContainer';
-import { TracksContainer } from './modules/track/containers/TracksContainer';
+import { TracksContainer } from './modules/track/containers/TracksContainer/TracksContainer';
 
 export const App = () => {
   return (

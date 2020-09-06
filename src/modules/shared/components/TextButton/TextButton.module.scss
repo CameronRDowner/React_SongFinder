@@ -1,0 +1,24 @@
+@import '../../../../sass/colors';
+.button{
+    padding: 0.5em;
+    font-size: 1rem;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    &:focus{
+        outline: none;
+    }
+}
+.button--primary{
+    background-color: $blue;
+    color: $black;
+}
+.button--alt{
+    border: 2px solid $light-gray;
+    background: none;
+    color: $dark-white;
+    &:hover{
+        background-color: $dark-white;
+        color: $dark-gray;
+    }
+}

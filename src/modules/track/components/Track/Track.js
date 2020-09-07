@@ -4,10 +4,12 @@ import styles from './Track.module.scss';
 export const Track = (properties) => {
     const {track} = properties;
     return (
-        <div className={styles.wrapper}>
-            <div className={styles['property-wrapper']}><i className={`${styles.icon} fas fa-play`}></i><span className={styles.text}>{track.track_name}</span></div>
-            <div className={styles['property-wrapper']}><i className={`${styles.icon} fas fa-record-vinyl`}></i><span className={styles.text}>{track.album_name}</span></div>
-            <div className={styles['property-wrapper']}><i className={`${styles.icon} fas fa-user`}></i><span className={styles.text}>{track.artist_name}</span></div>
+        <div className={styles['wrapper']}>
+            <div>
+                <div className={styles['song-name']}>{track.track_name}</div>
+                <div className={styles.property}><i className={`${styles.icon} fas fa-record-vinyl`}></i>{track.album_name}</div>
+                <div className={styles.property}><i className={`${styles.icon} fas fa-user`}></i>{track.artist_name}</div>
+            </div>
             <TextButton 
             buttonName={'View Lyrics'}
             altStyling={true}

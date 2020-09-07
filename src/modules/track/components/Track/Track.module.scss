@@ -1,18 +1,24 @@
 @import '../../../../sass/colors';
 .wrapper{
-    background-color: $dark-gray;
-    max-width: 100%;
     margin: 0;
     padding: 0.5em;
     text-align: left;
+    background-color: $dark-gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 .icon{
-    color: $dark-white;
+    color: $blue;
     margin-right: 0.3em;
+    filter: drop-shadow(0px 1px 6px $blue);
 }
-.text{
+.property{
     color: $light-gray;
+    margin: 0.4em 0;
 }
-.property-wrapper{
-    margin: 0.3em 0;
+.song-name{
+    color: $dark-white;
+    font-size: 1.2rem;
 }

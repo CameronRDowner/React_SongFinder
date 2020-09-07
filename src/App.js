@@ -9,7 +9,7 @@ import { TracksContainer } from './modules/track/containers/TracksContainer/Trac
 export const App = () => {
   return (
     <Provider>
-    <Router>
+    <Router basename={'/React_SongHunter'}>
     <React.Fragment>
       <NavBar/>
       <div id="router-wrapper">

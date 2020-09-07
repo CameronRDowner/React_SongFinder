@@ -1,13 +1,8 @@
 import React from 'react'
-import {Link, useHistory} from 'react-router-dom';
 import {TextButton} from '../../../shared/components/TextButton/TextButton';
 import styles from './Track.module.scss';
 export const Track = (properties) => {
-    const routeHistory = useHistory();
     const {track} = properties;
-    const navigateToLyrics = () =>{
-        routeHistory.push(`lyrics/track/${track.track_id}`)
-    }
     return (
         <div className={styles.wrapper}>
             <div className={styles['property-wrapper']}><i className={`${styles.icon} fas fa-play`}></i><span className={styles.text}>{track.track_name}</span></div>
@@ -16,7 +11,7 @@ export const Track = (properties) => {
             <TextButton 
             buttonName={'View Lyrics'}
             altStyling={true}
-            handleButtonClick={navigateToLyrics}
+            handleButtonClick={()=>properties.handleLyricsButtonClick(track.track_id)}
             />
         </div>
     )

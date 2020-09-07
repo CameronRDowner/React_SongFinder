@@ -6,12 +6,14 @@ import {Search} from '../../components/Search/Search';
 import axios from 'axios';
 import {Context} from '../../../../context';
 import styles from './TracksContainer.module.scss';
+import {useHistory} from 'react-router-dom';
 
 export const TracksContainer = () => {
     const baseUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?";
     const pageConfigURL = "&page_size=10&page=1&s_track_rating=desc";
     const apiKeyUrl = `&apikey=${process.env.REACT_APP_MM_KEY}`;
     const {dispatch} = useContext(Context)
+    const routeHistory = useHistory();
     const handleSearchByTrackName = (_trackName) => {
         getTrackByName(_trackName)
         .then(result=>{
@@ -49,6 +51,9 @@ export const TracksContainer = () => {
             payload: _tracksHeading
         })
     }
+    const navigateToLyrics = (trackId) =>{
+        routeHistory.push(`lyrics/track/${trackId}`)
+    }
     return (
         <main>
             <Search SearchByTrackLyric={handleSearchByTrackLyric} SearchByTrackName={handleSearchByTrackName}/>
@@ -70,7 +75,7 @@ export const TracksContainer = () => {
                     <h3 className={styles['tracks-heading']}>{tracksHeading}</h3>
                     <div id="tracks-container" className={styles['tracks-container']}>
                         {trackList.map(item => (
-                            <Track key={item.track.track_id} track={item.track} />
+                            <Track handleLyricsButtonClick={navigateToLyrics} key={item.track.track_id} track={item.track} />
                         ))}
                     </div>
                     </>

@@ -1,0 +1,11 @@
+@import '../../../sass/colors';
+.wrapper{
+    background-color: $dark-gray;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0.5em;
+}
+.lyrics{
+    color: $light-gray;
+    line-height: 2em;
+}

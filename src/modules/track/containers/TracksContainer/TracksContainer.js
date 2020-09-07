@@ -19,6 +19,7 @@ export const TracksContainer = () => {
         .then(result=>{
             console.log(result.data)
             setTrackList(result.data.message.body.track_list);
+            setTracksHeading('Search Results');
         })
         .catch(_error=>{
             console.log(_error);
@@ -27,6 +28,7 @@ export const TracksContainer = () => {
     const handleSearchByTrackLyric = (_trackLyrics) => {
         getTrackByLyric(_trackLyrics).then(result=>{
             setTrackList(result.data.message.body.track_list)
+            setTracksHeading('Search Results');
         })
         .catch(_error=>{
             console.log(_error)

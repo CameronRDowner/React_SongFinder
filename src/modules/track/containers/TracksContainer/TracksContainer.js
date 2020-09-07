@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {Consumer} from '../../../../context';
-import {TracksSkeletonScreen} from '../../components/TracksSkeletonScreen.js';
+import {TrackSkeletonScreen} from '../../components/TrackSkeletonScreen/TrackSkeletonScreen.js';
 import {Track} from '../../components/Track/Track.js';
 import {Search} from '../../components/Search/Search';
 import axios from 'axios';
@@ -63,11 +63,16 @@ export const TracksContainer = () => {
                 {value => {
                  const {trackList, tracksHeading} = value;
                     
-                 if(trackList === undefined || trackList === 0){
+                 if(trackList === undefined || trackList.length === 0){
                     return (
                     <>
-                    <h2 className={styles['tracks-heading']}>{tracksHeading}</h2>
-                    <TracksSkeletonScreen/>
+                    <h3 className={styles['tracks-heading']}>{tracksHeading}</h3>
+                    <div className={styles['tracks-container']}>
+                        {Array(10).fill(null).map(item => (
+                            <TrackSkeletonScreen/>
+                        ))
+                        }
+                    </div>
                     </>
                     );
                  }
@@ -75,7 +80,7 @@ export const TracksContainer = () => {
                     return (
                     <>
                     <h3 className={styles['tracks-heading']}>{tracksHeading}</h3>
-                    <div id="tracks-container" className={styles['tracks-container']}>
+                    <div className={styles['tracks-container']}>
                         {trackList.map(item => (
                             <Track handleLyricsButtonClick={navigateToLyrics} key={item.track.track_id} track={item.track} />
                         ))}

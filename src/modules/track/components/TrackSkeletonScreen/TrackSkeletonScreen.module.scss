@@ -1,0 +1,8 @@
+@import '../../../../sass/_animations';
+@import '../../../../sass/_colors';
+.box{
+    @extend .background-shimmer;
+    height: 11rem;
+    width: 100%;
+    background-color: $dark-gray;
+}

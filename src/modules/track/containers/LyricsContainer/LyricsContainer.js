@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { LyricsSkeletonScreen } from '../../components/LyricsSkeletonScreen';
 import { Lyrics } from '../../Lyrics/Lyrics';
 import {TrackInfo} from '../../components/TrackInfo/TrackInfo';
 import styles from './LyricsContainer.module.scss';
@@ -31,15 +30,9 @@ export const LyricsContainer = (properties) => {
     }, [])
     return ( 
         <main>
-        {
-        (Object.keys(track).length === 0 || Object.keys(lyrics).length === 0)?
-        <LyricsSkeletonScreen/>:
-        <>
         <TrackInfo track={track} />
         <h2 className={styles.heading}>Lyrics</h2>
         <Lyrics lyrics={lyrics}/>
-        </>
-        } 
         </main>
         )
 }
